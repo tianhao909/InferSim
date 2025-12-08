@@ -1,0 +1,198 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "4.1 InferSim dpsk prefill_only",
+            "type": "debugpy",
+            // "type": "python",
+            "request": "launch",
+            "module": "main",
+            "console": "integratedTerminal",
+            "python": "/disk2/futianhao/software2/all_conda_env/fth_simai_vidur_conda/envs/splitwise-sim/bin/python",
+            // python3 main.py --config-path hf_configs/deepseek_v3_config.json  \
+            // --device-type H800 \
+            // --world-size 32 --num-nodes 4 \
+            // --use-fp8-gemm  --enable-deepep \
+            // --enable-tbo  --target-osl 1786 \
+            // --max-prefill-tokens 8192 --prefill-only
+            // --target-osl Output sequence length, in tokens
+            "args": [
+                "--config-path",
+                "hf_configs/deepseek_v3_config.json",
+                "--device-type",
+                "H800",
+                "--world-size",
+                "32",
+                "--num-nodes",
+                "4",
+                "--enable-deepep",
+                "--enable-tbo",
+                "--target-osl",
+                "1786",
+                "--max-prefill-tokens",
+                "8192",
+                "--prefill-only"
+            ]
+        },
+        {
+            "name": "4.2 InferSim dpsk decode_only",
+            "type": "debugpy",
+            // "type": "python",
+            "request": "launch",
+            "module": "main",
+            "console": "integratedTerminal",
+            "python": "/disk2/futianhao/software2/all_conda_env/fth_simai_vidur_conda/envs/splitwise-sim/bin/python",
+            // python3 main.py --config-path hf_configs/deepseek_v3_config.json  \
+            // --device-type H800 \
+            // --world-size 128 --num-nodes 16 \
+            // --use-fp8-gemm  --enable-deepep \
+            // --enable-tbo  --target-osl 1786 \
+            // --decode-bs 64 \
+            // --decode-only
+            "args": [
+                "--config-path",
+                "hf_configs/deepseek_v3_config.json",
+                "--device-type",
+                "H800",
+                "--world-size",
+                // "32",
+                "128",
+                "--num-nodes",
+                "16",
+                "--enable-deepep",
+                "--enable-tbo",
+                "--target-osl",
+                "1786",
+                // "--max-prefill-tokens",
+                // "8192",
+                "--decode-bs",
+                "64",
+                // "--prefill-only"
+                "--decode-only"
+            ]
+        },
+        {
+            "name": "4.3 InferSim qwen3-30B-A3B prefill_only",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "main",
+            "console": "integratedTerminal",
+            "python": "/disk2/futianhao/software2/all_conda_env/fth_simai_vidur_conda/envs/splitwise-sim/bin/python",
+            // python3 main.py --config-path hf_configs/qwen3-30B-A3B_config.json \
+            // --device-type H20 --world-size 1 \
+            // --max-prefill-tokens 16384 --prefill-only
+            "args": [
+                "--config-path",
+                "hf_configs/qwen3-30B-A3B_config.json",
+                "--device-type",
+                "H20",
+                "--world-size",
+                "1",
+                "--num-nodes",
+                "1",
+                // "--enable-deepep",
+                // "--enable-tbo",
+                // "--target-osl",
+                // "1786",
+                "--max-prefill-tokens",
+                // "8192",
+                "16384",
+                "--prefill-only"
+            ]
+        },
+        {
+            "name": "4.4 InferSim qwen3-30B-A3B decode_only",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "main",
+            "console": "integratedTerminal",
+            "python": "/disk2/futianhao/software2/all_conda_env/fth_simai_vidur_conda/envs/splitwise-sim/bin/python",
+            // python3 main.py --config-path hf_configs/qwen3-30B-A3B_config.json  \
+            // --device-type H20 \
+            // --world-size 4 \
+            // --decode-bs 100 \
+            // --decode-only
+            "args": [
+                "--config-path",
+                "hf_configs/qwen3-30B-A3B_config.json",
+                "--device-type",
+                "H20",
+                "--world-size",
+                // "1",
+                "4",
+                "--num-nodes",
+                "1",
+                // "--enable-deepep",
+                // "--enable-tbo",
+                // "--target-osl",
+                // "1786",
+                // "--max-prefill-tokens",
+                // "8192",
+                "--decode-bs",
+                "100",
+                // "16384",
+                // "--prefill-only"
+                "--decode-only"
+            ]
+        },
+        {
+            "name": "4.5 InferSim qwen3-8B prefill+decode",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "main",
+            "console": "integratedTerminal",
+            "python": "/disk2/futianhao/software2/all_conda_env/fth_simai_vidur_conda/envs/splitwise-sim/bin/python",
+            // python3 main.py --config-path hf_configs/qwen3-8B_config.json \
+            // --device-type H20 --world-size 1 \
+            // --max-prefill-tokens 16384 \
+            // --decode-bs 64 \
+            // --use-fp8-gemm
+            "args": [
+                "--config-path",
+                "hf_configs/qwen3-8B_config.json",
+                "--device-type",
+                "H20",
+                "--world-size",
+                "1",
+                // "4",
+                "--num-nodes",
+                "1",
+                // "--enable-deepep",
+                // "--enable-tbo",
+                // "--target-osl",
+                // "1786",
+                "--max-prefill-tokens",
+                "16384",
+                // "8192",
+                "--decode-bs",
+                "64",
+                "--use-fp8-gemm"
+                // "100",
+                // "16384",
+                // "--prefill-only"
+                // "--decode-only"
+            ]
+        },
+
+
+
+        {
+            "name": "1.1.0 ar+no+canary",
+            "type": "debugpy",
+            // "type": "python",
+            "request": "launch",
+            "module": "sim-ai-inference-n.vidur.profiling.collectives.main",
+            "console": "integratedTerminal",
+            "python": "/disk2/futianhao/software3/sarathi-serve/env/bin/python",
+            "args": [
+                "--num_workers_per_node_combinations",
+                "4",
+                "--collective",
+                "all_reduce"
+            ]
+        }
+    ]
+}
